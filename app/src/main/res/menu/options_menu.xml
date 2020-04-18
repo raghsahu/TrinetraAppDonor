@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/navigation_profile"
+        app:showAsAction="withText"
+        android:enabled="true"
+        android:title="@string/profile" />
+
+    <item
+        android:visible="true"
+        android:id="@+id/navigation_pay_history"
+        android:title="@string/payment_history" />
+
+
+    <item
+        android:visible="true"
+        android:id="@+id/logout"
+        android:title="@string/logout" />
+
+</menu>

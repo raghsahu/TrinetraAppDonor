@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Trinetra App</string>
+    <string name="mobile_no">Mobile no.</string>
+    <string name="login">Login</string>
+    <string name="signup_as_donor">Signup as Donor</string>
+    <string name="signup_as_user">Signup as User</string>
+    <string name="donor">Donor</string>
+    <string name="choose_state">Choose State</string>
+    <string name="choose_distt">Choose Distt.</string>
+    <string name="choose_city">Choose City</string>
+    <string name="sch_name">School Name</string>
+    <string name="name">Name</string>
+    <string name="address">Address</string>
+    <string name="reference">Reference</string>
+    <string name="discription">Description (if any)</string>
+    <string name="payment">Payment</string>
+    <string name="text_no">Test No - 1 to 12</string>
+    <string name="camera_photo">Camera Photo</string>
+    <string name="choose_school">Choose School</string>
+    <string name="class_name">Class Name</string>
+    <string name="section">Section</string>
+    <string name="user">User</string>
+    <string name="submit">Submit</string>
+    <string name="profile">Profile</string>
+    <string name="payment_history">Payment History</string>
+    <string name="logout">Logout</string>
+    <string name="update">Update</string>
+    <string name="impact_analysis">Impact Analysis</string>
+
+
+    <string-array name="country">
+        <item>India</item>
+        <item>UK</item>
+        <item>USA</item>
+        <item>Nepal</item>
+        <item>Bhutan</item>
+    </string-array>
+
+</resources>

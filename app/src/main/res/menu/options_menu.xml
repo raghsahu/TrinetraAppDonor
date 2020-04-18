@@ -16,6 +16,11 @@
 
     <item
         android:visible="true"
+        android:id="@+id/test_one_to"
+        android:title="@string/test_one_two" />
+
+    <item
+        android:visible="true"
         android:id="@+id/logout"
         android:title="@string/logout" />
 

@@ -26,6 +26,7 @@
     <string name="logout">Logout</string>
     <string name="update">Update</string>
     <string name="impact_analysis">Impact Analysis</string>
+    <string name="test_one_two">Test 1 to 12</string>
 
 
     <string-array name="country">

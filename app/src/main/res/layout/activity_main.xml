@@ -89,17 +89,38 @@
 
                 </TextView>
 
-                <LinearLayout
+                <TextView
+                    style="@style/text14_bold_big_black"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:text="@string/text_no"
+                    android:textAllCaps="true"
+                    android:textAlignment="center">
 
-                    <com.jjoe64.graphview.GraphView
-                        android:id="@+id/graph"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_250sdp" />
+                </TextView>
 
+                <Spinner
+                    android:background="@drawable/edit_text_bg"
+                    android:entries="@array/test_ques"
+                    android:layout_margin="@dimen/_10sdp"
+                    android:padding="@dimen/_5sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+                </Spinner>
 
-                </LinearLayout>
+                <TextView
+                    style="@style/text14_bold_big_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    android:text="Ques Ans Sheet"
+                    android:textAllCaps="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:background="@drawable/edit_text_bg"
+                    android:textAlignment="center">
+
+                </TextView>
 
 
                 <LinearLayout
@@ -125,6 +146,39 @@
                         app:srcCompat="@drawable/ic_photo_camera">
 
                     </ImageView>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    style="@style/text14_bold_big_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Latitute: 22.07"
+                    android:textAllCaps="true"
+                    android:textAlignment="textStart">
+
+                </TextView>
+                <TextView
+                    style="@style/text14_bold_big_black"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Longitute: 70.25"
+                    android:textAllCaps="true"
+                    android:textAlignment="textStart">
+
+                </TextView>
+
+                <LinearLayout
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.jjoe64.graphview.GraphView
+                        android:id="@+id/graph"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_250sdp" />
 
 
                 </LinearLayout>

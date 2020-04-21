@@ -233,6 +233,38 @@
 
                 </TextView>
 
+                <LinearLayout
+                    android:background="@drawable/edit_text_bg"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <TextView
+                        style="@style/text14_bold_big_black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tips: "
+                        android:textAllCaps="true"
+                        android:textAlignment="center">
+                    </TextView>
+
+                    <TextView
+                        style="@style/text_12_light_black"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="1. How are you. \n2. What can we process for test. "
+                        android:textAllCaps="true"
+                        android:textAlignment="textStart">
+                    </TextView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_30sdp">
+                </LinearLayout>
+
 
             </LinearLayout>
         </ScrollView>

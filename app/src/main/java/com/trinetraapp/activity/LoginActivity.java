@@ -24,7 +24,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(LoginActivity.this,Donor_Registration.class);
+                Intent intent=new Intent(LoginActivity.this,Registration.class);
+                intent.putExtra("user_type", "Donor");
                 startActivity(intent);
             }
         });
@@ -32,8 +33,8 @@ public class LoginActivity extends AppCompatActivity {
         binding.tvUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent=new Intent(LoginActivity.this,User_Registration.class);
+                Intent intent=new Intent(LoginActivity.this, Registration.class);
+                intent.putExtra("user_type", "User");
                 startActivity(intent);
             }
         });

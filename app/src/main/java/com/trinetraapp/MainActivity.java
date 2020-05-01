@@ -13,8 +13,6 @@ import android.widget.Toast;
 
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
-import com.trinetraapp.activity.Donor_Registration;
-import com.trinetraapp.activity.LoginActivity;
 import com.trinetraapp.activity.Payment_History_Activity;
 import com.trinetraapp.activity.Profile_Activity;
 import com.trinetraapp.activity.SplashActivity;

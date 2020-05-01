@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.trinetraapp">
 
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -25,8 +26,7 @@
         tools:targetApi="q">
         <activity android:name=".activity.Payment_History_Activity"></activity>
         <activity android:name=".activity.Profile_Activity" />
-        <activity android:name=".activity.User_Registration" />
-        <activity android:name=".activity.Donor_Registration" />
+        <activity android:name=".activity.Registration" />
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".MainActivity" />
         <activity android:name=".activity.SplashActivity">

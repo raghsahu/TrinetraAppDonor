@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -13,15 +14,18 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.trinetraapp.MainActivity;
 import com.trinetraapp.R;
 import com.trinetraapp.databinding.ActivityUserRegistrationBinding;
 import com.trinetraapp.databinding.ActivityUserRegistrationBindingImpl;
 import com.trinetraapp.model.RegistrationModel;
 import com.trinetraapp.model.StateData;
 import com.trinetraapp.model.StateModel;
+import com.trinetraapp.model.login_model.LoginModel;
 import com.trinetraapp.utils.Api_Call;
 import com.trinetraapp.utils.Connectivity;
 import com.trinetraapp.utils.RxApiClient;
+import com.trinetraapp.utils.SessionManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -43,13 +47,15 @@ public class Registration extends AppCompatActivity {
     List<String> StateName=new ArrayList<>();
     List<String> CityName=new ArrayList<>();
     private String user_type_id,state_name,city_name;
-
+    SessionManager sessionManager;
+    private String user_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_user__registration);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_user__registration);
+        sessionManager = new SessionManager(this);
 
         if (getIntent()!=null){
             user_type= getIntent().getStringExtra("user_type");
@@ -126,7 +132,6 @@ public class Registration extends AppCompatActivity {
                 String et_address=binding.etAddress.getText().toString();
                 String et_reference=binding.etReference.getText().toString();
 
-
                 if (user_type.equals("User")){
                     user_type_id ="1";
                     if (!state_name.isEmpty() && !city_name.isEmpty() && !et_distt.isEmpty() && !et_sch_name.isEmpty() && !et_class_name.isEmpty()
@@ -157,7 +162,8 @@ public class Registration extends AppCompatActivity {
                             Toast.makeText(Registration.this, "Please enter valid mobile no", Toast.LENGTH_SHORT).show();
                         }else {
                             if (Connectivity.isConnected(Registration.this)){
-                                //RegisterApi();
+                                RegisterApi(user_type_id,state_name,city_name,et_distt,et_sch_name,et_class_name,et_section,et_name,
+                                        et_mobile,et_address,et_reference);
                             }else {
                                 Toast.makeText(Registration.this, "Please check internet", Toast.LENGTH_SHORT).show();
                             }
@@ -169,8 +175,6 @@ public class Registration extends AppCompatActivity {
                     }
                 }
 
-
-
             }
         });
 
@@ -178,7 +182,7 @@ public class Registration extends AppCompatActivity {
     }
 
     @SuppressLint("CheckResult")
-    private void RegisterApi(String user_type_id, String state_name, String city_name, String et_distt, String et_sch_name,
+    private void RegisterApi(final String user_type_id, String state_name, String city_name, String et_distt, String et_sch_name,
                              String et_class_name, String et_section, String et_name, String et_mobile, String et_address,
                              String et_reference) {
         final ProgressDialog progressDialog = new ProgressDialog(Registration.this, R.style.MyGravity);
@@ -204,16 +208,35 @@ public class Registration extends AppCompatActivity {
         apiInterface.RegisterApi(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribeWith(new DisposableObserver<RegistrationModel>() {
+                .subscribeWith(new DisposableObserver<LoginModel>() {
                     @Override
-                    public void onNext(RegistrationModel response) {
+                    public void onNext(LoginModel response) {
                         //Handle logic
                         try {
                             progressDialog.dismiss();
                             // Log.e("result_category_pro", "" + response.getMsg());
 
                             if (response.getResponse()) {
-                                Toast.makeText(Registration.this, "" + response.getSuccess(), Toast.LENGTH_SHORT).show();
+                                Toast.makeText(Registration.this, "Register successful", Toast.LENGTH_SHORT).show();
+
+                                for (int i=0; i<response.getData().size(); i++){
+                                    user_id=response.getData().get(i).getUserId();
+                                }
+
+                                if(user_type_id.equals("1")){
+                                    sessionManager.setLoginData(response.getData());
+                                    sessionManager.setUser_Id(user_id);
+                                    Intent intent = new Intent(Registration.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }else {
+                                    sessionManager.setUser_Id(user_id);
+                                    Intent intent = new Intent(Registration.this, PaymentActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+
 
                             } else {
                                 Toast.makeText(Registration.this, "" + response.getError(), Toast.LENGTH_SHORT).show();

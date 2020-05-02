@@ -5,7 +5,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.trinetraapp.activity.SplashActivity;
+import com.trinetraapp.model.login_model.LoginModelData;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -31,6 +34,7 @@ public class SessionManager extends Object {
     private static final String Email = "email";
     private static final String Gender = "gender";
     private static final String Token_Id = "token";
+    private static final String User_Id = "User_Id";
     private static final String Device_Id = "deviceId";
     private Context _context;
     private SharedPreferences mypref;
@@ -44,7 +48,7 @@ public class SessionManager extends Object {
 
     }
 
-//    public void createSession(RegistrationModelData userInfoData) {
+//    public void createSession(LoginModelData userInfoData) {
 //        Gson gson = new Gson();
 //        String json = gson.toJson(userInfoData);
 //        editor.putString("user", json);
@@ -52,35 +56,41 @@ public class SessionManager extends Object {
 //        editor.apply();
 //    }
 //
-//    public RegistrationModelData getUser() {
+//    public LoginModelData getUser() {
 //        Gson gson = new Gson();
 //        String str = mypref.getString("user", "");
 //        if (str.isEmpty())
 //            return null;
-//        return gson.fromJson(str, RegistrationModelData.class);
+//        return gson.fromJson(str, LoginModelData.class);
 //    }
 //
 //
-//    public void setCategoryData(List<CategoryName> categoryList) {
-//        Gson gson = new Gson();
-//        String json = gson.toJson(categoryList);
-//        editor.putString(TAG, json);
-//        editor.commit();
-//        editor.apply();
-//    }
-//
-//    public List<CategoryName> getCategoryData() {
-//        Gson gson = new Gson();
-//        String str = mypref.getString(TAG, "");
-//        if (str.isEmpty())
-//            return null;
-//        Type type = new TypeToken<List<CategoryName>>() {}.getType();
-//        List<CategoryName> arrayList = gson.fromJson(str, type);
-//        return arrayList;
-//    }
+    public void setLoginData(List<LoginModelData> categoryList) {
+        Gson gson = new Gson();
+        String json = gson.toJson(categoryList);
+        editor.putString(TAG, json);
+        editor.putBoolean("IsLogin", true);
+        editor.commit();
+        editor.apply();
+    }
+
+    public List<LoginModelData> getLoginData() {
+        Gson gson = new Gson();
+        String str = mypref.getString(TAG, "");
+        if (str.isEmpty())
+            return null;
+        Type type = new TypeToken<List<LoginModelData>>() {}.getType();
+        List<LoginModelData> arrayList = gson.fromJson(str, type);
+        return arrayList;
+    }
 
     public void setName(String name) {
         editor.putString(Name, name);
+        editor.apply();
+        editor.commit();
+    }
+    public void setUser_Id(String user_id) {
+        editor.putString(User_Id, user_id);
         editor.apply();
         editor.commit();
     }
@@ -196,6 +206,10 @@ public class SessionManager extends Object {
 
     public String getEmail() {
         return mypref.getString(Email, "");
+
+    }
+    public String getUser_Id() {
+        return mypref.getString(User_Id, "");
 
     }
 

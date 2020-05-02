@@ -49,7 +49,7 @@
 
 
                     <EditText
-                        android:id="@+id/inward_time"
+                        android:id="@+id/et_mobile"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/_8sdp"

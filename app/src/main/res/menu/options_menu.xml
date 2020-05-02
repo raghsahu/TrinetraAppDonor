@@ -16,7 +16,7 @@
 
     <item
         android:visible="true"
-        android:id="@+id/test_one_to"
+        android:id="@+id/test_history"
         android:title="@string/test_one_two" />
 
     <item

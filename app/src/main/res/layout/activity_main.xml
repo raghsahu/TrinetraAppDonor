@@ -100,27 +100,31 @@
                 </TextView>
 
                 <Spinner
+                    android:id="@+id/spin_test"
                     android:background="@drawable/edit_text_bg"
-                    android:entries="@array/test_ques"
                     android:layout_margin="@dimen/_10sdp"
                     android:padding="@dimen/_5sdp"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/_35sdp"
                     >
                 </Spinner>
 
                 <TextView
-                    style="@style/text14_bold_big_black"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_150sdp"
-                    android:text="Ques Ans Sheet"
-                    android:textAllCaps="true"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:background="@drawable/edit_text_bg"
+                    android:layout_height="wrap_content"
+                    android:text="Questions List"
+                    android:textAllCaps="false"
                     android:textAlignment="center">
 
                 </TextView>
+
+                <ListView
+                    android:layout_marginTop="@dimen/_10sdp"
+                    android:background="@drawable/edit_text_bg"
+                    android:id="@android:id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_150sdp"
+                    />
 
 
                 <LinearLayout
@@ -134,10 +138,11 @@
                         style="@style/text_14_light_black"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/camera_photo" />
+                        android:text="Capture answer sheet photo" />
 
 
                     <ImageView
+                        android:id="@+id/iv_camera"
                         android:layout_width="@dimen/_100sdp"
                         android:layout_height="@dimen/_100sdp"
                         android:layout_gravity="center"
@@ -206,9 +211,12 @@
                         android:gravity="start">
 
                         <EditText
+                            android:id="@+id/et_desc"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_gravity="start"
+                            android:textAlignment="textStart"
+                            android:gravity="start"
                             android:background="@null"
                             android:hint="@string/discription"
                             android:inputType="textMultiLine"
@@ -221,7 +229,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/tv_login"
+                    android:id="@+id/tv_submit"
                     style="@style/textview12white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

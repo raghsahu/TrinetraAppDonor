@@ -326,7 +326,7 @@
                     android:layout_margin="@dimen/_10sdp"
                     android:background="@drawable/rectangle_bg_primary"
                     android:padding="@dimen/_10sdp"
-                    android:text="@string/payment"
+                    android:text="Register"
                     android:textAlignment="center">
                 </TextView>
 

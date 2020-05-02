@@ -12,10 +12,13 @@ import android.util.Log;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.trinetraapp.MainActivity;
 import com.trinetraapp.R;
+import com.trinetraapp.utils.SessionManager;
 
 public class SplashActivity extends AppCompatActivity {
     private static final int REQUEST_CODE_PERMISSION = 2;
+    SessionManager sessionManager;
     String[] mPermission = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -27,7 +30,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-
+        sessionManager = new SessionManager(SplashActivity.this);
 
         try {
             if (ActivityCompat.checkSelfPermission(this, mPermission[0])
@@ -52,15 +55,15 @@ public class SplashActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        //  if (sessionManager.isLoggedIn()){
-//                    Intent mainIntent = new Intent(Splash_Screen.this, MainActivity.class);
-//                    startActivity(mainIntent);
-//                    finish();
-                        //  }else {
-                        Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
-                        startActivity(mainIntent);
-                        finish();
-                        //  }
+                        if (sessionManager.isLoggedIn()) {
+                            Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+                            startActivity(mainIntent);
+                            finish();
+                        } else {
+                            Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
+                            startActivity(mainIntent);
+                            finish();
+                        }
 
 
                     }
@@ -78,8 +81,7 @@ public class SplashActivity extends AppCompatActivity {
     }
 
 
-
-        @Override
+    @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         Log.e("Req Code", "" + requestCode);
@@ -88,15 +90,12 @@ public class SplashActivity extends AppCompatActivity {
         System.out.println(grantResults[2] == PackageManager.PERMISSION_GRANTED);
         System.out.println(grantResults[3] == PackageManager.PERMISSION_GRANTED);
 
-
-
         if (requestCode == REQUEST_CODE_PERMISSION) {
             if (grantResults.length == 7 &&
                     grantResults[0] == PackageManager.PERMISSION_GRANTED &&
                     grantResults[1] == PackageManager.PERMISSION_GRANTED &&
                     grantResults[2] == PackageManager.PERMISSION_GRANTED &&
                     grantResults[3] == PackageManager.PERMISSION_GRANTED
-
 
             ) {
                 /* New Handler to start the Menu-Activity
@@ -105,15 +104,15 @@ public class SplashActivity extends AppCompatActivity {
                 new Handler().postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        //  if (sessionManager.isLoggedIn()){
-//                    Intent mainIntent = new Intent(Splash_Screen.this, MainActivity.class);
-//                    startActivity(mainIntent);
-//                    finish();
-                        //  }else {
-                        Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
-                        startActivity(mainIntent);
-                        finish();
-                        //  }
+                        if (sessionManager.isLoggedIn()) {
+                            Intent mainIntent = new Intent(SplashActivity.this, MainActivity.class);
+                            startActivity(mainIntent);
+                            finish();
+                        } else {
+                            Intent mainIntent = new Intent(SplashActivity.this, LoginActivity.class);
+                            startActivity(mainIntent);
+                            finish();
+                        }
 
 
                     }

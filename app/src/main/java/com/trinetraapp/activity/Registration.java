@@ -26,6 +26,7 @@ import com.trinetraapp.utils.Api_Call;
 import com.trinetraapp.utils.Connectivity;
 import com.trinetraapp.utils.RxApiClient;
 import com.trinetraapp.utils.SessionManager;
+import com.trinetraapp.utils.Utilities;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -49,6 +50,7 @@ public class Registration extends AppCompatActivity {
     private String user_type_id,state_name,city_name;
     SessionManager sessionManager;
     private String user_id;
+    private Utilities utilities;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class Registration extends AppCompatActivity {
         //setContentView(R.layout.activity_user__registration);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_user__registration);
         sessionManager = new SessionManager(this);
+        utilities = Utilities.getInstance(this);
 
         if (getIntent()!=null){
             user_type= getIntent().getStringExtra("user_type");
@@ -217,25 +220,25 @@ public class Registration extends AppCompatActivity {
                             // Log.e("result_category_pro", "" + response.getMsg());
 
                             if (response.getResponse()) {
-                                Toast.makeText(Registration.this, "Register successful", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(Registration.this, "Register successful", Toast.LENGTH_SHORT).show();
 
                                 for (int i=0; i<response.getData().size(); i++){
                                     user_id=response.getData().get(i).getUserId();
                                 }
 
-                                if(user_type_id.equals("1")){
-                                    sessionManager.setLoginData(response.getData());
-                                    sessionManager.setUser_Id(user_id);
-                                    Intent intent = new Intent(Registration.this, MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }else {
-                                    sessionManager.setUser_Id(user_id);
-                                    Intent intent = new Intent(Registration.this, PaymentActivity.class);
-                                    startActivity(intent);
-                                    finish();
-                                }
-
+//                                if(user_type_id.equals("1")){
+//                                    sessionManager.setLoginData(response.getData());
+//                                    sessionManager.setUser_Id(user_id);
+//                                    Intent intent = new Intent(Registration.this, MainActivity.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                }else {
+//                                    sessionManager.setUser_Id(user_id);
+//                                    Intent intent = new Intent(Registration.this, PaymentActivity.class);
+//                                    startActivity(intent);
+//                                    finish();
+//                                }
+                                utilities.dialogOK(Registration.this, "Success", "Register successful! \nPlease wait for admin approval. Thanks!", getString(R.string.ok), true);
 
 
                             } else {

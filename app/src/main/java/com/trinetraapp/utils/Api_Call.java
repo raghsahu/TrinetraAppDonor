@@ -5,6 +5,7 @@ import com.trinetraapp.model.RegistrationModel;
 import com.trinetraapp.model.StateModel;
 import com.trinetraapp.model.login_model.LoginModel;
 import com.trinetraapp.model.ques_data.TestQuesModel;
+import com.trinetraapp.model.test_history.Test_History_Model;
 import com.trinetraapp.model.test_name.TestNameModel;
 
 import java.util.HashMap;
@@ -26,6 +27,7 @@ import retrofit2.http.Query;
 import static com.trinetraapp.utils.Base_Url.get_city;
 import static com.trinetraapp.utils.Base_Url.get_questions;
 import static com.trinetraapp.utils.Base_Url.get_state;
+import static com.trinetraapp.utils.Base_Url.get_test_history;
 import static com.trinetraapp.utils.Base_Url.get_tests;
 import static com.trinetraapp.utils.Base_Url.user_login;
 import static com.trinetraapp.utils.Base_Url.user_signup;
@@ -69,4 +71,10 @@ public interface Api_Call {
             @Part ("user_id")  RequestBody user_id,
             @Part ("test_id") RequestBody test_id,
             @Part MultipartBody.Part body);
+
+    @FormUrlEncoded
+    @POST(get_test_history)
+    Observable<Test_History_Model>  TestHistoryApi(
+            @Field("test_id")   String testId,
+            @Field("user_id")  String user_id);
 }

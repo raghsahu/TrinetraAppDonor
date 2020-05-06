@@ -44,11 +44,9 @@ public class LoginActivity extends AppCompatActivity {
         binding = DataBindingUtil.setContentView(this, R.layout.activity_login);
         sessionManager = new SessionManager(this);
 
-
         binding.tvDonor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intent = new Intent(LoginActivity.this, Registration.class);
                 intent.putExtra("user_type", "Donor");
                 startActivity(intent);

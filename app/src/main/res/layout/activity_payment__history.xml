@@ -49,9 +49,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
 
 
@@ -60,12 +58,32 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
             android:text="Payment Due"
             android:textAlignment="center"
             android:textStyle="bold">
+        </TextView>
+
+        <TextView
+            android:layout_margin="@dimen/_10sdp"
+            style="@style/text_16_primary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Billing details:"
+            android:textAlignment="textStart"
+            android:textStyle="bold">
 
         </TextView>
+        <TextView
+            android:layout_marginStart="@dimen/_10sdp"
+            style="@style/text_14_black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="dolly pathak \na/c no: 20054779888 /nIFSC CODE: SBIN0008484"
+            android:textAlignment="textStart"
+            android:textStyle="normal">
+
+        </TextView>
+
 
     </LinearLayout>
 

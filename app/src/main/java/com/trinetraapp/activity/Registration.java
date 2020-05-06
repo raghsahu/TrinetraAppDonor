@@ -51,6 +51,7 @@ public class Registration extends AppCompatActivity {
     SessionManager sessionManager;
     private String user_id;
     private Utilities utilities;
+    private String profile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +63,7 @@ public class Registration extends AppCompatActivity {
 
         if (getIntent()!=null){
             user_type= getIntent().getStringExtra("user_type");
+            profile=getIntent().getStringExtra("profile");
         }
 
         if (user_type.equals("Donor")){

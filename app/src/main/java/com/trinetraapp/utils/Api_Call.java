@@ -4,6 +4,7 @@ package com.trinetraapp.utils;
 import com.trinetraapp.model.RegistrationModel;
 import com.trinetraapp.model.StateModel;
 import com.trinetraapp.model.login_model.LoginModel;
+import com.trinetraapp.model.profile_update_model;
 import com.trinetraapp.model.ques_data.TestQuesModel;
 import com.trinetraapp.model.test_history.Test_History_Model;
 import com.trinetraapp.model.test_name.TestNameModel;
@@ -22,6 +23,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
+import retrofit2.http.PartMap;
 import retrofit2.http.Query;
 
 import static com.trinetraapp.utils.Base_Url.get_city;
@@ -32,6 +34,7 @@ import static com.trinetraapp.utils.Base_Url.get_tests;
 import static com.trinetraapp.utils.Base_Url.user_login;
 import static com.trinetraapp.utils.Base_Url.user_signup;
 import static com.trinetraapp.utils.Base_Url.user_test_submit;
+import static com.trinetraapp.utils.Base_Url.user_update;
 
 /**
  * Created by Raghvendra Sahu on 20-Apr-20.
@@ -77,4 +80,15 @@ public interface Api_Call {
     Observable<Test_History_Model>  TestHistoryApi(
             @Field("test_id")   String testId,
             @Field("user_id")  String user_id);
+
+
+    @FormUrlEncoded
+    @POST(user_update)
+    Observable<profile_update_model> UpdateApi(@FieldMap Map<String, String> map);
+
+    @Multipart
+    @POST(user_update)
+    Observable<profile_update_model>  UpdateImageApi(
+            @PartMap Map<String, String> map,
+            @Part MultipartBody.Part body);
 }

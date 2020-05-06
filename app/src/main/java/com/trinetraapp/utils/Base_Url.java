@@ -7,6 +7,7 @@ public interface Base_Url {
 
 
     String BaseUrl="https://ihisaab.in/trinetra/Api/";
+    String profile_img="https://ihisaab.in/trinetra/uploads/profile/";
 
     String get_state="get_state";
     String get_city="get_city";
@@ -16,6 +17,7 @@ public interface Base_Url {
     String get_questions="get_questions";
     String user_test_submit="user_test_submit";
     String get_test_history="get_test_history";
+    String user_update="user_signup/update";
 
 
 }

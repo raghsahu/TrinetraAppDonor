@@ -9,7 +9,6 @@
         android:orientation="vertical"
         >
 
-
         <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -64,33 +63,6 @@
 
                 </LinearLayout>
 
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_5sdp"
-                    android:orientation="vertical"
-                    android:padding="@dimen/_5sdp">
-
-                    <TextView
-                        style="@style/text_14_light_black"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/choose_city" />
-
-
-                    <Spinner
-                        android:id="@+id/spin_city"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/_35sdp"
-                        android:layout_marginTop="@dimen/_5sdp"
-                        android:background="@drawable/edit_text_bg"
-                        android:padding="@dimen/_10sdp"
-                        android:textColor="@color/black" />
-
-                </LinearLayout>
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -112,6 +84,32 @@
                         android:background="@drawable/edit_text_bg"
                         android:hint="@string/enter_distt"
                         android:inputType="text"
+                        android:padding="@dimen/_10sdp"
+                        android:textColor="@color/black" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_5sdp"
+                    android:orientation="vertical"
+                    android:padding="@dimen/_5sdp">
+
+                    <TextView
+                        style="@style/text_14_light_black"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/choose_city" />
+
+
+                    <Spinner
+                        android:id="@+id/spin_city"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/_35sdp"
+                        android:layout_marginTop="@dimen/_5sdp"
+                        android:background="@drawable/edit_text_bg"
                         android:padding="@dimen/_10sdp"
                         android:textColor="@color/black" />
 
@@ -334,7 +332,6 @@
             </LinearLayout>
 
         </ScrollView>
-
 
 
     </RelativeLayout>

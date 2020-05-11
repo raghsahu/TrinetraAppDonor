@@ -209,7 +209,6 @@ public class Registration extends AppCompatActivity {
         map.put("address", et_address);
         map.put("reference", et_reference);
 
-
         apiInterface.RegisterApi(map)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -240,7 +239,7 @@ public class Registration extends AppCompatActivity {
 //                                    startActivity(intent);
 //                                    finish();
 //                                }
-                                utilities.dialogOK(Registration.this, "Success", "Register successful! \nPlease wait for admin approval. Thanks!", getString(R.string.ok), true);
+                                utilities.dialogOK(Registration.this, "Success", "Register successful!", getString(R.string.ok), true);
 
 
                             } else {

@@ -193,6 +193,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.tvEbazar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent httpIntent = new Intent(Intent.ACTION_VIEW);
+                httpIntent.setData(Uri.parse("http://www.mblisting.com/"));
+
+                startActivity(httpIntent);
+            }
+        });
+
     }
 
     @SuppressLint("CheckResult")
